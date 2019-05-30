@@ -1,0 +1,18 @@
+version: '3.2'
+services:
+  jenkins:
+    image: jenkinsci/jenkins
+    volumes:
+      - ./jenkins:/var/jenkins_home:rw
+    ports:
+      - 8080:8080
+    container_name: jenkins
+
+  artifactory:
+    image: mattgruter/artifactory
+    ports:
+      - "9090:8080"
+    container_name: artifactory
+    volumes: 
+      - ./artifactory:/artifactory:rw
+ 
